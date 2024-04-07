@@ -454,12 +454,32 @@ const print = function(){
 
 print() // Hello World
 ```
-| Our JS Code | Creation Phase | Execution Phase |
+|  JS Code | Creation Phase | Execution Phase |
 | --- | --- | --- |
 | let a=10; | a=undefined | a=10 |
 | let b=a; | b=undefined | b=10 |
 | const print = function(){console.log("Hello World")} | print=undefined | print=function(){console.log("Hello World")} |
 | print() | | console.log("Hello World") |
+| function show(){console.log("Hello World")} | show={function definition} | |
+
+
+## Q29. What is the Global Execution Context and Function or Local Execution Context in JavaScript?
+
+### Global Execution Context:
+When a JavaScript program starts, the JavaScript engine creates the global execution context. The global execution context is the outermost context and is responsible for executing the global code. The global execution context consists of the global object, the this keyword, the scope chain, and the variable object.
+
+### Function or Local Execution Context:
+When a function is called in JavaScript, the JavaScript engine creates a new execution context for that function. This new execution context is known as the function or local execution context. This function execution context is also consist of two parts ** Creation Phase ** and ** Execution Phase **. The variables declared inside the function have local scope and are only accessible within that function. When the function completes execution, its execution context is removed from the stack.
+
+```jsx
+function print() {
+    let message = 'Hello World';
+    console.log(message);
+}
+
+print(); // Hello World
+```
+![image](./context.png)
 
 
 
@@ -471,6 +491,7 @@ print() // Hello World
 
 
 
+// Stack and Heap
 
 
 
