@@ -319,6 +319,154 @@ let sum = numbers.reduce((accumulator, currentValue) => accumulator + currentVal
 console.log(sum); // 15
 ```
 
+## Q21. What is the find() method in JavaScript?
+The find() method in JavaScript is used to find the first element in an array that satisfies a certain condition. The find() method returns the value of the first element that satisfies the condition, or undefined if no such element is found.
+
+```jsx
+let numbers = [1, 2, 3, 4, 5];
+let evenNumber = numbers.find((number) => number % 2 === 0);
+console.log(evenNumber); // 2
+```
+## Q22. What is the some() method in JavaScript?
+The some() method in JavaScript is used to check if at least one element in an array satisfies a certain condition. The some() method returns true if at least one element satisfies the condition, otherwise it returns false.
+
+```jsx
+let numbers = [1, 2, 3, 4, 5];
+let hasEvenNumber = numbers.some((number) => number % 2 === 0);
+console.log(hasEvenNumber); // true
+```
+
+## Q23. What is the every() method in JavaScript?
+The every() method in JavaScript is used to check if all elements in an array satisfy a certain condition. The every() method returns true if all elements satisfy the condition, otherwise it returns false.
+
+```jsx
+let numbers = [1, 2, 3, 4, 5];
+let allEvenNumbers = numbers.every((number) => number % 2 === 0);
+console.log(allEvenNumbers); // false
+```
+
+## Q24. What is difference between slice() and splice() method in JavaScript?
+The slice() and splice() methods are used to manipulate arrays in JavaScript, but they have different purposes and behaviors.
+
+### slice():
+The slice() method in JavaScript is used to extract a portion of an array and return a new array without modifying the original array. The slice() method takes two arguments: the start index and the end index (optional). The slice() method returns a new array containing the elements from the start index up to, but not including, the end index.
+
+```jsx
+let numbers = [1, 2, 3, 4, 5];
+let slicedNumbers = numbers.slice(1, 4);
+console.log(slicedNumbers); // [2, 3, 4]
+console.log(numbers); // [1, 2, 3, 4, 5]
+```
+
+### splice():
+The splice() method in JavaScript is used to add or remove elements from an array. The splice() method takes three arguments: the start index, the number of elements to remove, and optional elements to add. The splice() method modifies the original array and returns an array containing the removed elements.
+
+```jsx
+let numbers = [1, 2, 3, 4, 5];
+let removedNumbers = numbers.splice(1, 2);
+console.log(removedNumbers); // [2, 3]
+console.log(numbers); // [1, 4, 5]
+```
+
+## Q25. What is the difference between rest and spread operator in JavaScript?
+The rest and spread operators are both introduced in ES6 (ECMAScript 2015) and are used to work with arrays and objects in JavaScript. The main difference between the rest and spread operators is their usage and syntax. The rest operator is used to gather elements into an array, while the spread operator is used to spread elements from an array.
+
+### Rest Operator:
+The rest operator is denoted by three dots (...) and is used to gather elements into an array. The rest operator can be used to collect the remaining arguments of a function into an array or to destructure an array into individual elements.
+
+```jsx
+function sum(...numbers) {
+    return numbers.reduce((acc, curr) => acc + curr, 0);
+}
+
+console.log(sum(1, 2, 3, 4, 5)); // 15
+```
+
+### Spread Operator:
+The spread operator is also denoted by three dots (...) and is used to spread elements from an array. The spread operator can be used to copy an array, concatenate arrays, or pass elements of an array as arguments to a function.
+
+```jsx
+let numbers = [1, 2, 3];
+let newNumbers = [...numbers, 4, 5];
+console.log(newNumbers); // [1, 2, 3, 4, 5]
+```
+
+## Q26. How to delete a key from the object?
+To delete a key from an object in JavaScript, you can use the delete operator. The delete operator removes a property from an object. Here is an example of how to delete a key from an object:
+
+```jsx
+let person = {
+    name: 'John',
+    age: 30,
+    city: 'New York'
+};
+
+delete person.age;
+
+console.log(person); // { name: 'John', city: 'New York' }
+```
+
+## Q27. How to check that a key exists in an object?
+To check if a key exists in an object in JavaScript, you can use the hasOwnProperty() method or the in operator. The hasOwnProperty() method returns true if the object has the specified property, while the in operator returns true if the property exists in the object or its prototype chain.
+
+```jsx
+let person = {
+    name: 'John',
+    age: 30,
+    city: 'New York'
+};
+
+console.log(person.hasOwnProperty('age')); // true
+
+console.log('age' in person); // true
+```
+
+
+--------------------- Execution Context ----------------------------
+## Q28. What is the Execution Context in JavaScript?
+The execution context in JavaScript means that how the code execute is JS.The execution context consist of two things or part ** Crational Phase ** and ** Execution Phase **.
+
+### Creation Phase:
+In the creation phase, the JavaScript engine creates the global object, sets up the scope chain, and creates the variable and assign them value with **undefined**. The variable object contains all the variables, function declarations, and formal parameters in the current execution context.
+Let me give you an example of the creation phase.
+
+```jsx
+
+let a=10; // In creations phase the value of all variables store as undefined
+let b=a;  // As the value of a is undefined so the value of b will be undefined
+
+function print(){
+    console.log("Hello World")
+} // In creation phase the value of print will hold the function definition
+
+
+```
+### Execution Phase:
+In the execution phase, the JavaScript engine assigns values to variables and executes the code line by line. The JavaScript engine starts executing the code from the top of the file and moves down line by line. The JavaScript engine assigns values to variables, evaluates expressions, and executes function calls during the execution phase.
+
+```jsx
+let a=10; // In creations phase the value of all variables store as undefined
+let b=a;  // As the value of a is undefined so the value of b will be undefined
+
+const print = function(){
+    console.log("Hello World")
+} // In creation phase the value of print will hold the function definition
+
+print() // Hello World
+```
+| Our JS Code | Creation Phase | Execution Phase |
+| --- | --- | --- |
+| let a=10; | a=undefined | a=10 |
+| let b=a; | b=undefined | b=10 |
+| const print = function(){console.log("Hello World")} | print=undefined | print=function(){console.log("Hello World")} |
+| print() | | console.log("Hello World") |
+
+
+
+
+
+
+
 
 
 
