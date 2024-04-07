@@ -59,20 +59,17 @@ Basically, we used both of the operators for comparison while the main differenc
 
 Let's consider an example of what actual comparison looks like in both of these operator 
 
-                                                   **operand == operand**
+                                                   operand == operand
 
 ### 1. ==
 
 In JavaScript, the **`==`** operator is known as the equality operator. When using **`==`**, JavaScript attempts to convert both operands to a common type before making the comparison. This process is called type coercion.
 
-Here's how JavaScript decides which types to convert the operands to:
+Here are some examples of how the **`==`** operator works:
 
-1. **If either operand is a string**: JavaScript converts the other operand to a string.
-2. **If either operand is a number or a boolean**: JavaScript converts the other operand to a number.
-3. **If either operand is an object**: JavaScript converts both operands to numbers if possible, or to strings if not.
-4. **If either operand is null or undefined**: No conversion happens, and the comparison returns true only if both operands are null or undefined.
-5. **If one operand is NaN**: The result of the comparison is always false.
-6. **If both operands are objects**: They are compared as object references, and the comparison returns true only if they reference the same object.
+
+
+
 
 ```jsx
 console.log(1 == '1');       // true, '1' is converted to a number
@@ -88,7 +85,12 @@ console.log({} == {});       // false, different objects
 
 ### 2. ===
 
-**`===`** operator in JavaScript is known as the strict equality operator. It behaves differently from the **`==`** operator in that it does not perform type coercion. Instead, it requires both operands to be of the same type and have the same value for the comparison to return true.
+**`===`** operator in JavaScript is known as the strict equality operator. It behaves differently from the **`==`** operator in that it does not perform type coercion. Instead, it requires both operands to be of the **same type** and have the same value for the comparison to return true else it will return false even the value are same but the data type is different.
+
+```jsx
+console.log(1 === '1');       // false, number is not equal to string
+console.log(true === 1);      // false, boolean is not equal to number
+```
 
 ## Q3. Function and there types
 
@@ -190,7 +192,6 @@ console.log("Hello World")  // this will be executed after the first line
 In the above example, the first and third console.log statements will be executed first, followed by the second console.log statement after a delay of 2 seconds.
 
 ### Q8. what is difference between window and document in JavaScript?
-// create a difference table between window and document
 
 | Window | Document |
 | --- | --- |
@@ -198,6 +199,39 @@ In the above example, the first and third console.log statements will be execute
 | It represents the browser window or tab. | It represents the HTML document loaded in the window. |
 |By default window object is available implicitly in the page. | You can access it via window.document or document. |
 | It has methods like alert(), confirm() and properties like document, location, history. | It has methods like getElementById(), getElementsByClassName() and properties like body, forms. |
+
+### Q9. What is the eval() function in JavaScript?
+The eval() function in JavaScript is used to evaluate or execute an argument as an expression. The argument can be a string containing JavaScript code, a function, or an expression. The eval() function is a global function and can be used to execute code dynamically at runtime.
+
+```jsx
+console.log(eval('2 + 2')); // 4
+```
+
+### Q10. What is the difference between http and https?
+HTTP and HTTPS are both protocols used to transfer data over the web, but they operate over different communication channels and have different security mechanisms.The main difference between HTTP and HTTPS is that HTTP is not secure and data is transferred in plain text, while HTTPS is secure and data is encrypted before being transferred.
+
+| HTTP | HTTPS |
+| --- | --- |
+| HTTP stands for Hypertext Transfer Protocol. | HTTPS stands for Hypertext Transfer Protocol Secure. |
+| It operates over port 80. | It operates over port 443. |
+| Data is transferred in plain text. | Data is encrypted before being transferred. |
+| It is not secure and can be intercepted by attackers. | It is secure and protects against eavesdropping
+
+### Q11. What is the difference between local storage and session storage in HTML5?
+Local storage and session storage are both web storage options available in HTML5 that allow developers to store data locally in the user's browser. The main difference between local storage and session storage is the lifetime of the data and the scope of the data.The data saved in session storage is available only for the duration of the page session, while the data saved in local storage persists even after the browser is closed and reopened.
+
+
+### Q12. What is the ternary operator in JavaScript?
+Do you ever heared about the if else statement in JavaScript, the ternary operator is the shorthand version of the if else statement in JavaScript. The ternary operator is a conditional operator that takes three operands: a condition followed by a question mark (?), an expression to execute if the condition is true, and a colon (:) followed by an expression to execute if the condition is false.
+  let me write it in general form 
+  ** condition ? this will execute if condition true : this will execute if condition is false **
+  
+  ```jsx
+    let marks = 18;
+    let result = (marks >= 40) ? 'Pass' : 'Fail';
+    console.log(result); // Fail 
+```jsx
+
 
 
 
