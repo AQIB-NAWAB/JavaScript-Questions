@@ -10,16 +10,9 @@ JavaScript variables have 3 types of scope:
 - Global scope
 
 ### Block Scope
+Variables declared inside a { } block can NOT be accessed from outside the block.
+it is also known as the local scope. it cloud be a if statement, for loop, while loop, or a function.
 
-Variables defined in the curly braces using the let and const keyword have block scope. These variables are only accessible in that pair of braces.
-
-Before ES6 (2015), JavaScript variables had only **Global Scope** and **Function Scope**.
-
-ES6 introduced two important new JavaScript keywords: `let` and `const`.
-
-These two keywords provide **Block Scope** in JavaScript.
-
-Variables declared inside a { } block cannot be accessed from outside the block:
 
 ```jsx
 {
@@ -230,7 +223,7 @@ Do you ever heared about the if else statement in JavaScript, the ternary operat
     let marks = 18;
     let result = (marks >= 40) ? 'Pass' : 'Fail';
     console.log(result); // Fail 
-```jsx
+```
 
 
 ## Q13. What is the JSON object in JavaScript?
