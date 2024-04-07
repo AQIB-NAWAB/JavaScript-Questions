@@ -167,7 +167,7 @@ console.log("Hello World") // this will be executed after the first line
 ```
 
 ## Q6. What is the difference between null and undefined in JavaScript?
-The main difference between null and undefined in JavaScript is that null is an assigned value that represents the absence of a value, while undefined is a variable that has been declared but not assigned a value.Let's consider a example,to store variable value we use a box and if the box is empty then it is undefined and if the box is not present then it is null.
+The main difference between null and undefined in JavaScript is that null is an assigned value that represents the absence of a value, while undefined is a variable that has been declared but not assigned a value.Let's consider a example,to store variable value we use a box and if the box is empty then it is null and if the box is not present then it is undefined.
 
 
 
@@ -470,6 +470,7 @@ When a JavaScript program starts, the JavaScript engine creates the global execu
 
 ### Function or Local Execution Context:
 When a function is called in JavaScript, the JavaScript engine creates a new execution context for that function. This new execution context is known as the function or local execution context. This function execution context is also consist of two parts ** Creation Phase ** and ** Execution Phase **. The variables declared inside the function have local scope and are only accessible within that function. When the function completes execution, its execution context is removed from the stack.
+We use **call stack** to determine the order of local execution context
 
 ```jsx
 function print() {
@@ -481,7 +482,27 @@ print(); // Hello World
 ```
 ![image](./context.png)
 
+## Q30. What is the call stack in JavaScript ?
+Whenever a function is called in JavaScript, the JavaScript engine creates an execution context for that function and adds it to the call stack. The call stack is a data structure that stores information on the based on the LIFO (Last In, First Out) principle. Soon the function completes execution means it's 2nd part of execution context is removed from the stack.
+When our script is loaded, the global execution context is added to the call stack. As functions are called, their execution contexts are added to the call stack, and when they complete execution, their execution contexts are removed from the stack.
 
+```jsx
+const a=10;
+const b=20;
+
+function sum(){
+    let name="Dev"
+
+    function print(){
+        console.log("hellow World")
+    }
+}
+
+
+
+
+![alt text](call-stack.png)
+ 
 
 
 
