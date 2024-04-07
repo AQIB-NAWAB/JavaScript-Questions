@@ -146,4 +146,47 @@ print("Dev"); // Dev
 
 ```
 
-1.
+### Q4. What is IIFE (Immediately Invoked Function Expression)?
+A Immediately Invoked Function Expression (IIFE) is a JavaScript function that runs as soon as it is defined. It is a design pattern that is used to create a private scope for variables to avoid polluting the global scope.To call the function immediately after defining it, we wrap the function in parentheses and then append an additional set of parentheses at the end.
+    
+    ```jsx
+    (function() {
+        console.log("Hello World");
+    })();
+    ```
+
+
+## Q5. What kind of JS language is , compiled language or intrepeted language ?
+JavaScript is an interpreted language, not a compiled language. The major difference between complied language and interpreted language is that complied language is first converted into machine code and then executed while interpreted language is executed line by line.So which means that JS is single threaded language.
+
+```jsx
+console.log("Hello World") // this will be executed first then the next line will be executed
+console.log("Hello World") // this will be executed after the first line
+```
+
+## Q6. What is the difference between null and undefined in JavaScript?
+The main difference between null and undefined in JavaScript is that null is an assigned value that represents the absence of a value, while undefined is a variable that has been declared but not assigned a value.Let's consider a example,to store variable value we use a box and if the box is empty then it is undefined and if the box is not present then it is null.
+
+
+
+```jsx
+let a;
+console.log(a); // undefined
+```
+
+## Q7. Is JavaScript a synchronous or asynchronous programming language?
+### Synchronous Programming
+JavaScript is a synchronous programming language, meaning that it executes code line by line in the order it appears in the source code.Which means that it will execute one line of code at a time and move to next line after the execution of the first line.
+### Asynchronous Programming
+JavaScript is also capable of asynchronous programming, which allows code to run in parallel without blocking the main execution thread. This is achieved using asynchronous functions, callbacks, promises, and async/await.
+
+```jsx 
+console.log("Hello World") // this will be executed first
+setTimeout(() => {
+    console.log("Hello World") // this will be executed after 2 seconds
+}, 2000)
+console.log("Hello World")  // this will be executed after the first line
+```
+In the above example, the first and third console.log statements will be executed first, followed by the second console.log statement after a delay of 2 seconds.
+
+
