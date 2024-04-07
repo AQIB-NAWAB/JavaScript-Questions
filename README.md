@@ -273,9 +273,76 @@ let person = {
 console.log(person.name); // John
 ```
 
+## Q16. What is the forEeach() method in JavaScript?
+The forEach() method in JS used to execute a function on every element of an array.We can use the forEach() method to iterate over an array and perform an operation on each element without using a for loop.It will change the original array if we perfoam any operation on element.
 
 
 
+```jsx
+let numbers = [1, 2, 3, 4, 5];
+// I want to add 1 to each element of the array
+// We can use forEach method to iterate over the each element of the array and add 1 to each element
+
+numbers.forEach((number, index) => {
+    numbers[index] = number + 1;
+});
+
+console.log(numbers); // [2, 3, 4, 5, 6]
+```
+
+## Q18. What is the map() method in JavaScript?
+The map() method in JavaScript is used to create a new array by applying a function to each element of an existing array. The map() method does not change the original array but returns a new array with the results of the function applied to each element.
+
+```jsx
+let numbers = [1, 2, 3, 4, 5];
+let newNumbers = numbers.map((number) => number * 2);
+console.log(newNumbers); // [2, 4, 6, 8, 10]
+console.log(numbers); // [1, 2, 3, 4, 5]
+```
+
+## Q19. What is the filter() method in JavaScript?
+The filter() method in JavaScript is used to create a new array with elements that pass a certain condition. The filter() method does not change the original array but returns a new array with elements that satisfy the condition.
+
+```jsx
+let numbers = [1, 2, 3, 4, 5];
+let evenNumbers = numbers.filter((number) => number % 2 === 0);
+console.log(evenNumbers); // [2, 4]
+console.log(numbers); // [1, 2, 3, 4, 5]
+```
+
+## Q20. What is the reduce() method in JavaScript?
+The reduce() method in JavaScript is used to reduce an array to a single value by applying a function to each element of the array. The reduce() method takes an accumulator and a current value as arguments and returns a single value. The reduce() method can be used to perform operations such as summing the elements of an array or finding the maximum value.
+
+```jsx
+let numbers = [1, 2, 3, 4, 5];
+let sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+console.log(sum); // 15
+```
+
+
+
+
+
+
+
+
+## Q17. what is meant by call back function in JavaScript?
+A callback function is a function that is passed as an argument to another function and is executed after the completion of the first function. Callback functions are used to handle asynchronous operations, such as reading a file or making an API request, and are commonly used in event handling, timers, and AJAX requests.
+
+```jsx
+function fetchData(callback) {
+    setTimeout(() => {
+        const data = 'Hello World';
+        callback(data);
+    }, 2000);
+}
+
+function displayData(data) {
+    console.log(data);
+}
+
+fetchData(displayData); // Hello World
+```
 
 
 
