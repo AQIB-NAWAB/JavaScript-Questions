@@ -189,4 +189,15 @@ console.log("Hello World")  // this will be executed after the first line
 ```
 In the above example, the first and third console.log statements will be executed first, followed by the second console.log statement after a delay of 2 seconds.
 
+### Q8. what is difference between window and document in JavaScript?
+// create a difference table between window and document
+
+| Window | Document |
+| --- | --- |
+| It is the root level element in any web page. | It is the child element of the window object. |
+| It represents the browser window or tab. | It represents the HTML document loaded in the window. |
+|By default window object is available implicitly in the page. | You can access it via window.document or document. |
+| It has methods like alert(), confirm() and properties like document, location, history. | It has methods like getElementById(), getElementsByClassName() and properties like body, forms. |
+
+
 
