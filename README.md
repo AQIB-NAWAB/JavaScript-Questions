@@ -148,7 +148,7 @@ print("Dev"); // Dev
 
 ```
 
-### Q4. What is IIFE (Immediately Invoked Function Expression)?
+## Q4. What is IIFE (Immediately Invoked Function Expression)?
 A Immediately Invoked Function Expression (IIFE) is a JavaScript function that runs as soon as it is defined. It is a design pattern that is used to create a private scope for variables to avoid polluting the global scope.To call the function immediately after defining it, we wrap the function in parentheses and then append an additional set of parentheses at the end.
     
     ```jsx
@@ -191,7 +191,7 @@ console.log("Hello World")  // this will be executed after the first line
 ```
 In the above example, the first and third console.log statements will be executed first, followed by the second console.log statement after a delay of 2 seconds.
 
-### Q8. what is difference between window and document in JavaScript?
+## Q8. what is difference between window and document in JavaScript?
 
 | Window | Document |
 | --- | --- |
@@ -200,14 +200,14 @@ In the above example, the first and third console.log statements will be execute
 |By default window object is available implicitly in the page. | You can access it via window.document or document. |
 | It has methods like alert(), confirm() and properties like document, location, history. | It has methods like getElementById(), getElementsByClassName() and properties like body, forms. |
 
-### Q9. What is the eval() function in JavaScript?
+## Q9. What is the eval() function in JavaScript?
 The eval() function in JavaScript is used to evaluate or execute an argument as an expression. The argument can be a string containing JavaScript code, a function, or an expression. The eval() function is a global function and can be used to execute code dynamically at runtime.
 
 ```jsx
 console.log(eval('2 + 2')); // 4
 ```
 
-### Q10. What is the difference between http and https?
+## Q10. What is the difference between http and https?
 HTTP and HTTPS are both protocols used to transfer data over the web, but they operate over different communication channels and have different security mechanisms.The main difference between HTTP and HTTPS is that HTTP is not secure and data is transferred in plain text, while HTTPS is secure and data is encrypted before being transferred.
 
 | HTTP | HTTPS |
@@ -217,11 +217,11 @@ HTTP and HTTPS are both protocols used to transfer data over the web, but they o
 | Data is transferred in plain text. | Data is encrypted before being transferred. |
 | It is not secure and can be intercepted by attackers. | It is secure and protects against eavesdropping
 
-### Q11. What is the difference between local storage and session storage in HTML5?
+## Q11. What is the difference between local storage and session storage in HTML5?
 Local storage and session storage are both web storage options available in HTML5 that allow developers to store data locally in the user's browser. The main difference between local storage and session storage is the lifetime of the data and the scope of the data.The data saved in session storage is available only for the duration of the page session, while the data saved in local storage persists even after the browser is closed and reopened.
 
 
-### Q12. What is the ternary operator in JavaScript?
+## Q12. What is the ternary operator in JavaScript?
 Do you ever heared about the if else statement in JavaScript, the ternary operator is the shorthand version of the if else statement in JavaScript. The ternary operator is a conditional operator that takes three operands: a condition followed by a question mark (?), an expression to execute if the condition is true, and a colon (:) followed by an expression to execute if the condition is false.
   let me write it in general form 
   ** condition ? this will execute if condition true : this will execute if condition is false **
@@ -231,6 +231,50 @@ Do you ever heared about the if else statement in JavaScript, the ternary operat
     let result = (marks >= 40) ? 'Pass' : 'Fail';
     console.log(result); // Fail 
 ```jsx
+
+
+## Q13. What is the JSON object in JavaScript?
+JSON (JavaScript Object Notation) is a lightweight data interchange format that is easy for humans to read and write and easy for machines to parse and generate. JSON is a text-based format and is used to represent structured data. In JavaScript, the JSON object is used to parse and stringify JSON data. The JSON object has two methods: JSON.parse() and JSON.stringify().
+
+```jsx
+let person = {
+    name: 'John',
+    age: 30,
+    city: 'New York'
+};
+
+let json = JSON.stringify(person);
+console.log(json); // {"name":"John","age":30,"city":"New York"}
+
+let obj = JSON.parse(json);
+console.log(obj.name); // John
+```
+
+---------------- Arrays and objects ------------------------
+
+## Q14. What is the array in JavaScript?
+An array in JavaScript is a special type of variable that can hold multiple values at once. Arrays are used to store collections of data, such as a list of numbers or a list of objects.We can save function, object, string, number, boolean in an array.To access the element of an array we use the index of the element.
+
+```jsx 
+let numbers = [1, 2, 3, 4, 5];
+console.log(numbers[0]); // 1
+```
+
+## Q15. What is the object in JavaScript?
+An Object is a vairable that can hold multiple values at once. Objects are used to store collections of key-value pairs, where each key is a unique identifier for a value. Objects can contain properties and methods, which are defined as key-value pairs within the object.
+
+```jsx
+let person = {
+    name: 'John',
+    age: 30,
+    city: 'New York'
+};
+
+console.log(person.name); // John
+```
+
+
+
 
 
 
