@@ -107,7 +107,8 @@ print("Dev") // Dev
 ### **Function Expressions or A**nonymous function expression:
 
 What is an expression in Mathematics ?
-Assigning a variable with some equation, similar to this 
+Evaluating equation into a single value is known as an expression in mathematics.
+While in programming, an expression is a combination of variables, operators, and values that evaluates to a single value that can be stored into a variable.
 
 **a=2+4bc** 
 
@@ -476,7 +477,8 @@ print(); // Hello World
 ![image](./context.png)
 
 ## Q30. What is the call stack in JavaScript ?
-Whenever a function is called in JavaScript, the JavaScript engine creates an execution context for that function and adds it to the call stack. The call stack is a data structure that stores information on the based on the LIFO (Last In, First Out) principle. Soon the function completes execution means it's 2nd part of execution context is removed from the stack.
+
+Whenever a function is called in JavaScript, the JavaScript engine creates an execution context for that function and adds it to the call stack.Call Stack is used to maintain the order of execution. The call stack is a data structure that stores information on the based on the LIFO (Last In, First Out) principle.When a function created it add to the call stack. Soon the function completes execution means it's 2nd part of execution context of function  removed from the stack.
 When our script is loaded, the global execution context is added to the call stack. As functions are called, their execution contexts are added to the call stack, and when they complete execution, their execution contexts are removed from the stack.
 
 ```jsx
