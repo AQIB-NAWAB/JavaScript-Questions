@@ -500,8 +500,10 @@ function sum(){
  
 
 ## Q31. What is the Hoisting in JavaScript?
-As we already know that in the creation phase the value of all variables store as undefined and the function definition is stored in the variable object. Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their containing scope during the creation phase. This means that you can use a variable or function before it has been declared but we know that we get the value of the variable as undefined and function defination for a function itself.In simple words we can say that accesing the vairables or function before it's declartion is known as hoisting.Remember we can only access the variables not the value of the variable if vairables are using before the declaration statement.
-** Hoisting only works for the function declaration and variable declared with var keyword not with let and const keyword **
+As we already know that in the creation phase the value of all variables store as undefined and the function definition is stored in the variable object.So which means that i can access the variable before it is declared while executing the code. This is known as the hoisting in JavaScript.
+
+
+**Hoisting only works for the function declaration and variable declared with var keyword not with let and const keyword**
 ```jsx
 console.log(a); // undefined
 var a = 10;
@@ -525,7 +527,7 @@ console.log(b); // ReferenceError: Cannot access 'b' before initialization
 const b = 20;
 ```
 ## Q33. What is temporal dead zone in JavaScript?
-The temporal dead zone is a period between the variable hoisted to the top of the block scope and the variable initialized. At this time you cannot access your variable and if you try to access the variable you will get a ReferenceError.As we know that our executon context consist of two parts ** Creation Phase ** and ** Execution Phase **. So the temporal dead zone is the time between the variable cretion phase and the variable initialization phase.At this time TDZ hold all the variables and make them unaccessible however the variable are in the scope.
+The temporal dead zone is a period between the variable hoisted to the top of the block scope and the variable initialized. At this time you cannot access your variable and if you try to access the variable you will get a ReferenceError.As we know that our executon context consist of two parts **Creation Phase** and **Execution Phase**. So the temporal dead zone is the time between the variable cretion phase and the variable initialization phase.At this time TDZ hold all the variables and make them unaccessible however the variable are in the scope.
 
 ```jsx
 // Temporal Dead Zone - TDZ start from here for variable a
