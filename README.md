@@ -499,6 +499,115 @@ function sum(){
 ![alt text](call-stack.png)
  
 
+## Q31. What is the Hoisting in JavaScript?
+As we already know that in the creation phase the value of all variables store as undefined and the function definition is stored in the variable object. Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their containing scope during the creation phase. This means that you can use a variable or function before it has been declared but we know that we get the value of the variable as undefined and function defination for a function itself.In simple words we can say that accesing the vairables or function before it's declartion is known as hoisting.Remember we can only access the variables not the value of the variable if vairables are using before the declaration statement.
+** Hoisting only works for the function declaration and variable declared with var keyword not with let and const keyword **
+```jsx
+console.log(a); // undefined
+var a = 10;
+
+show(); // Hello World
+
+function show() {
+    console.log('Hello World');
+}
+
+```
+
+## Q32. Hiosting in case of let and const in JavaScript?
+Hoisting only works for the function declaration and variable declared with var keyword not with let and const keyword. When we use let and const keyword to declare a variable, the variable is hoisted to the top of the block scope but not initialized. This means that you cannot access the variable before it is declared, and you will get a ReferenceError if you try to access the variable before its declaration.This is known as the temporal dead zone.It is the time between the variable hoisted to the top of the block scope and the variable initialized.
+
+```jsx
+console.log(a); // ReferenceError: Cannot access 'a' before initialization
+let a = 10;
+
+console.log(b); // ReferenceError: Cannot access 'b' before initialization
+const b = 20;
+```
+## Q33. What is temporal dead zone in JavaScript?
+The temporal dead zone is a period between the variable hoisted to the top of the block scope and the variable initialized. At this time you cannot access your variable and if you try to access the variable you will get a ReferenceError.As we know that our executon context consist of two parts ** Creation Phase ** and ** Execution Phase **. So the temporal dead zone is the time between the variable cretion phase and the variable initialization phase.At this time TDZ hold all the variables and make them unaccessible however the variable are in the scope.
+
+```jsx
+// Temporal Dead Zone - TDZ start from here for variable a
+// Still hold the variable a in the TDZ beacuse we still not reach to the initialization phase or line at which the variable is declared
+console.log(a); // ReferenceError: Cannot access 'a' before initialization beacuse the variable a is still in the TDZ
+
+let a = 10; // Initialization phase or line at which the variable is declared,At this time the variable a is removed from the TDZ and accesible now
+
+```
+
+## Q34. Exercising the hoisting in JavaScript?
+
+```jsx
+console.log(a); // Guess the output
+
+var a = 10;
+
+function a(){
+    console.log("Hello World")
+}
+
+console.log(a); // Guess the output
+```
+```jsx
+console.log(a); // Guess the output
+
+var a = 10;
+
+a =function sum(){
+    console.log("Hello World")
+}
+
+console.log(a); // Guess the output
+```
+
+```jsx
+console.log(b); // Guess the output
+
+var a=b=10;
+
+console.log(b); // Guess the output
+```
+
+```jsx
+
+show(); // Guess the output
+showUsingVar(); // Guess the output
+const show=()=>{
+    console.log("Hello World")
+}
+var showUsingVar=()=>{
+    console.log("Hello World")
+};
+
+```
+
+
+
+
+## Q33. What is the scope chain in JavaScript?
+The scope chain in JavaScript is the mechanism that determines the order in which variables are resolved in nested functions. When a variable is referenced in a function, the JavaScript engine first looks for the variable in the current function's scope. If the variable is not found, the engine looks in the outer function's scope, and so on, until it reaches the global scope. This process of searching for a variable in nested functions is known as the scope chain.
+
+```jsx
+let a = 10;
+
+function outer() {
+    let b = 20;
+
+    function inner() {
+        let c = 30;
+        console.log(a); // 10
+        console.log(b); // 20
+        console.log(c); // 30
+    }
+
+    inner();
+}
+
+outer();
+```
+
+
 
 
 
@@ -508,6 +617,8 @@ function sum(){
 
 
 // Stack and Heap
+
+
 
 
 
@@ -528,6 +639,8 @@ function displayData(data) {
 
 fetchData(displayData); // Hello World
 ```
+
+
 
 
 
