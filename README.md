@@ -421,8 +421,7 @@ console.log('age' in person); // true
 The execution context in JavaScript means that how the code execute is JS.The execution context consist of two things or part ** Crational Phase ** and ** Execution Phase **.
 
 ### Creation Phase:
-In the creation phase, the JavaScript engine creates the global object, sets up the scope chain, and creates the variable and assign them value with **undefined**. The variable object contains all the variables, function declarations, and formal parameters in the current execution context.
-Let me give you an example of the creation phase.
+In the creation phase,the JS engine creates the global execution context and sets up the memory space for variables and functions.All the variables are stored in the memory space with the value of undefined and the function definition is stored in the memory space. 
 
 ```jsx
 
@@ -440,7 +439,6 @@ In the execution phase, the JavaScript engine assigns values to variables and ex
 
 ```jsx
 let a=10; // In creations phase the value of all variables store as undefined
-let b=a;  // As the value of a is undefined so the value of b will be undefined
 
 const print = function(){
     console.log("Hello World")
@@ -451,7 +449,6 @@ print() // Hello World
 |  JS Code | Creation Phase | Execution Phase |
 | --- | --- | --- |
 | let a=10; | a=undefined | a=10 |
-| let b=a; | b=undefined | b=10 |
 | const print = function(){console.log("Hello World")} | print=undefined | print=function(){console.log("Hello World")} |
 | print() | | console.log("Hello World") |
 | function show(){console.log("Hello World")} | show={function definition} | |
@@ -588,10 +585,57 @@ var showUsingVar=()=>{
 ```
 
 
+## Q35. What is the difference between var, let, and const in JavaScript?
+In JavaScript, var, let, and const are used to declare variables, but they have different scopes and behaviors. The main differences between var, let, and const are:
+| var | let | const |
+| --- | --- | --- |
+| Variables declared with var are function-scoped. | Variables declared with let are block-scoped. | Variables declared with const are block-scoped. |
+| Variables declared with var are hoisted to the top of their function or global scope. | Variables declared with let are hoisted to the top of their block scope but not initialized. | Variables declared with const are hoisted to the top of their block scope but not initialized. |
+| Variables declared with var can be redeclared and reassigned. | Variables declared with let can be reassigned but not redeclared. | Variables declared with const cannot be redeclared or reassigned. |
+| Variables declared with var have global scope if declared outside a function. | Variables declared with let do not have global scope if declared outside a function. | Variables declared with const do not have global scope if declared outside a function. |
+
+```jsx
+var a = 10;
+let b = 20;
+const c = 30;
+
+var a = 40; // No error
+let b = 50; // SyntaxError: Identifier 'b' has already been declared
+const c = 60; // SyntaxError: Identifier 'c' has already been declared
+
+a = 70; // No error
+b = 80; // No error
+c = 90; // TypeError: Assignment to constant variable
+```
+
+
+
 
 
 ## Q33. What is the scope chain in JavaScript?
 The scope chain in JavaScript is the mechanism that determines the order in which variables are resolved in nested functions. When a variable is referenced in a function, the JavaScript engine first looks for the variable in the current function's scope. If the variable is not found, the engine looks in the outer function's scope, and so on, until it reaches the global scope. This process of searching for a variable in nested functions is known as the scope chain.
+
+```jsx
+let a = 10;
+
+function outer() {
+    let b = 20;
+
+    function inner() {
+        let c = 30;
+        console.log(a); // 10
+        console.log(b); // 20
+        console.log(c); // 30
+    }
+
+    inner();
+}
+
+outer();
+```
+
+## Q34. What is the Lexical Scope in JavaScript?
+Lexical scope in JavaScript means that the scope of a variable is determined by its position in the source code. When a variable is referenced in a function, the JavaScript engine looks for the variable in the current function's scope and then in the outer function's scope, and so on, until it reaches the global scope. This process of determining the scope of a variable based on its position in the source code is known as lexical scope.
 
 ```jsx
 let a = 10;
