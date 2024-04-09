@@ -531,10 +531,13 @@ The temporal dead zone is a period between the variable hoisted to the top of th
 
 ```jsx
 // Temporal Dead Zone - TDZ start from here for variable a
-// Still hold the variable a in the TDZ beacuse we still not reach to the initialization phase or line at which the variable is declared
-console.log(a); // ReferenceError: Cannot access 'a' before initialization beacuse the variable a is still in the TDZ
+// Still hold the variable a in the TDZ beacuse we still not reach to the 
+//  initialization phase or line at which the variable is declared
+console.log(a); // ReferenceError: Cannot access 'a' before initialization
+//  beacuse the variable a is still in the TDZ
 
-let a = 10; // Initialization phase or line at which the variable is declared,At this time the variable a is removed from the TDZ and accesible now
+let a = 10; // Initialization phase or line at which the variable 
+// is declared,At this time the variable a is removed from the TDZ and accesible now
 
 ```
 
