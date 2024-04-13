@@ -713,6 +713,46 @@ function Person(name, age) {
 
 console.log(Person.prototype); // { constructor: [Function: Person] }
 ```
+Let's explain with an object example 
+```jsx
+let person = {
+    name: 'John',
+    age: 30,
+    greet: function() {
+        console.log('Hello, ' + this.name + '!');
+    }
+};
+
+person.greet(); // Hello, John!
+console.log(person) 
+```
+try to console log the person object and see the prototype property of the object
+![alt text](2024_04_13_0ss_Kleki.png)
+
+When you open the prototype property of the object you will see alot of methods like call(), apply(), bind() etc. These methods are used to change the value of this keyword in the function.A prototype itself contains it's own prototype property that leads to null or undefined after lot of chaining like personObject-->prototype--->prototype--->prototype--->prototype--->null or undefined;
+
+How we  access the values from object ?
+Whenever we want to access the property of an object we use the dot notation like object.propertyName.behind the scene that happens is that first the JS engine check the object itself contains this property or not if not then it check the prototype property of the object and so on until it reach to the null or undefined.
+
+Confussed ?
+
+Here is an example 
+
+```jsx
+
+const myObject = {
+    name: 'John',
+    age: 30,
+    greet: function() {
+        console.log('Hello, ' + this.name + '!');
+    }
+};
+
+myObject.greet(); // Hello, John!
+myObject.toString(); // [object Object]
+```
+How this happened even i did not define the toString() method in the object ? 
+so basically first it look into the object itself and if it does not find the property then it look into the prototype property of the object and find it there 
 
 
 
