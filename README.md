@@ -611,7 +611,6 @@ c = 90; // TypeError: Assignment to constant variable
 
 
 
-
 ## Q33. What is the scope chain in JavaScript?
 The scope chain in JavaScript is the mechanism that determines the order in which variables are resolved in nested functions. When a variable is referenced in a function, the JavaScript engine first looks for the variable in the current function's scope. If the variable is not found, the engine looks in the outer function's scope, and so on, until it reaches the global scope. This process of searching for a variable in nested functions is known as the scope chain.
 
@@ -656,6 +655,70 @@ function outer() {
 outer();
 ```
 
+## Q35. What are turty and falsy values in JavaScript?
+In JavaScript, truthy and falsy values are values that are considered true or false when evaluated in a Boolean context.These values are mostly used in conditional statements to determine the flow of the program. For example execute this code if user exist otherwise execute this code. Here is code sample 
+    
+    ```jsx  
+    let user = null;
+
+    if(user){
+        console.log("User exist")
+    }
+    else{
+        console.log("User not exist")
+    }
+    ```
+How to determine the turty and falsy values in JavaScript? 
+- Falsy values: A value is considered falsy if it is false, 0, '', null, undefined, or NaN.
+- Truthy values: A value is considered truthy if it is not falsy.
+
+```jsx
+console.log(Boolean(false)); // false
+console.log(Boolean(0)); // false
+console.log(Boolean('')); // false
+console.log(Boolean(null)); // false
+console.log(Boolean(undefined)); // false
+console.log(Boolean(NaN)); // false
+console.log(Boolean(true)); // true
+console.log(Boolean(1)); // true
+console.log(Boolean('hello')); // true
+console.log(Boolean({})); // true
+```
+
+
+## Q36. What  is this keyword in JavaScript?
+The this keyword in JavaScript refers to the object or scope or context in which code is executed. The value of this depends on how a function is called and where it is called. The this keyword can have different values depending on the context in which it is used.When our web page is loaded the this keyword automatically refer to the window object containing the global variables and functions like
+- window.alert()
+- window.document
+- window.location
+- window.history
+- setTimeout()
+- setInterval()
+
+You can try its value by using the console.log(this) in the browser console.
+```jsx
+console.log(this); // window object
+```
+
+## Q37. What is the difference between call(), apply(), and bind() methods in JavaScript?
+Before understanding the difference between call(), apply(), and bind() methods in JavaScript, let's first understand what is prototype in JavaScript.
+
+When a function is created in JavaScript, it is automatically assigned a prototype property. These prototype properties are additional properties that can be added to a function or object automatically . Try to create a object and console log the object
+
+```jsx
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+console.log(Person.prototype); // { constructor: [Function: Person] }
+```
+
+
+
+
+
+  
 
 
 
