@@ -491,9 +491,22 @@ function sum(){
 }
 
 ```
-
-
 ![alt text](call-stack.png)
+
+## Q31. What is event loop is JS ?
+The event loop in JavaScript is a mechanism that allows the JavaScript engine to perform non-blocking I/O operations. The event loop is responsible for handling asynchronous operations such as setTimeout(), setInterval(), and AJAX requests. The event loop continuously checks the call stack and the callback queue to determine which function to execute next. There are two type of queue in the event loop ** Microtask Queue ** and ** Macrotask Queue **
+Before understaning them let's understand the call stack and event loop workflow
+As we know that our code consist of functions and variables.When a function execute JS push it's execution context on CALL STACK.While on the other hand if there is any event that will be occur in future will be push to event loop and forward to the callback queue.Event loop check the call stack and callback queue everytime, as soon as the event loop find out that there is task in queue and call stack is empty it will push the task to the call stack and execute it.But there are two type of queue in the event loop ** Microtask Queue ** and ** Macrotask Queue **
+### Microtask Queue:
+Microtask queue include the task that are high priority task like promise, async await, mutation observer etc. The microtask queue is checked before the macrotask queue and the callback queue. The microtask queue is emptied before the macrotask queue is checked.
+
+### Macrotask Queue:
+Macrotask queue include the task that are low priority task like setTimeout(), setInterval(), setImmediate(), requestAnimationFrame(), I/O, UI rendering etc. The macrotask queue is checked after the microtask queue and the callback queue. The macrotask queue is checked after the call stack is empty and the microtask queue is empty.
+
+
+![alt text](Untitled.png)
+
+
  
 
 ## Q31. What is the Hoisting in JavaScript?
@@ -790,12 +803,242 @@ greet.call(person); // Hello, John!
 ```
 In the above example, the call() method is used to call the greet() function with the person object as the value of this.
 
+### apply():
+The apply() method of Function instances calls this function with a given this value and arguments provided as an array.
+```jsx
+function greet(complement) {
+    console.log('Hello, ' + this.name + '!');
+    console.log(complement);
+}
+
+let person = {
+    name: 'John'
+};
+
+greet.apply(person,["Have  a nice day"]); // Hello, John! Have a nice day
+```
+
+### bind():
+The bind() method of Function instances creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
+```jsx
+function greet() {
+    console.log('Hello, ' + this.name + '!');
+}
+
+let person = {
+    name: 'John'
+};
+
+function dummy(){
+    let name="Dev"
+}
+let greetPerson = greet.bind(person);
+let dummyFunction = greet.bind(dummy);
+
+greetPerson(); // Hello, John!
+dummyFunction(); // Hello, Dev!
+```
+
+
+
+
+
+
 
 
 
 
 
   
+
+
+## Q39. What is Lexical Environment in JS ?
+Lexical environment is the environment in which the code is executed. It consists of two parts: the environment record and the outer environment reference. The environment record is a mapping of identifiers to values, and the outer environment 
+
+
+
+## Q39. What is Clouser  ?
+When variables declared inside a inner function can access the variables of outer function , this property is known as Closure.
+In other words, the inner function preserves the scope chain of the enclosing function at the time the enclosing function was executed, and thus can access the enclosing function’s variables.
+The closure has three scope chains:
+
+    it has access to its own scope — variables defined between its curly brackets
+    it has access to the outer function’s variables
+    it has access to the global variables
+So let's disucss what is scope chain 
+Scope Chain is the order in which the JavaScript engine looks for variables when it encounters a reference in the code. The scope chain is determined by the order in which functions are defined in the code, and it is used to resolve variable names based on the lexical scope of the function.let suppose we are in nested function and we are trying to access the variable of outer function then the JS engine first look into the inner function execution context if it does not find the variable then it look into the outer function execution context and so on until it reach to the global execution context.
+
+```jsx
+function outer() {
+    let a = 10;
+
+    function inner() {
+        let b = 20;
+
+        console.log(a); // 10
+        console.log(b); // 20
+    }
+
+    return inner;
+}
+
+let innerFunction = outer();
+innerFunction();
+```
+Let's have an other example 
+```jsx
+function outer() {var b = 10;
+var c = 100;   function inner() {
+        
+         var a = 20; 
+         console.log("a= " + a + " b= " + b);         a++;
+         b++;    }
+   return inner;
+}var X = outer();  // outer() invoked the first time
+var Y = outer();  // outer() invoked the second time
+//end of outer() function executions
+X(); // X() invoked the first time
+X(); // X() invoked the second time
+X(); // X() invoked the third timeY(); // Y() invoked the first time
+
+```
+The Output Will be like 
+
+```h
+a=20 b=10
+a=20 b=11
+a=20 b=12
+a=20 b=10
+```
+
+----------- AJAX ,CALLBACK , Promises and Async/Await ----------------
+
+## Q40. What is AJAX in JavaScript?
+AJAX (Asynchronous JavaScript and XML) is a technique used in web development to create interactive web applications. AJAX allows web pages to be updated asynchronously by exchanging data with a web server behind the scenes. This means that web pages can be updated without reloading the entire page, resulting in a more dynamic and responsive user experience.It is simillar to the fetch() method in JavaScript.We can use the fetch() method to make AJAX requests in modern web applications.So let's discuss how we make API request thorough the AJAX in JavaScript.
+First we need to create the instance of the XMLHttpRequest object and then we need to open the request and then we need to send the request to the server and then we need to handle the response from the server.
+1. Instance Creation of XMLHttpRequest object
+2. Open the request
+3. Send the request
+4. Handle the response
+
+Before witing the code let's discuss the states of the XMLHttpRequest object
+- 0: request not initialized
+- 1: server connection established
+- 2: request received
+- 3: processing request
+- 4: request finished and response is ready
+
+
+```jsx
+let xhr = new XMLHttpRequest(); // Step 1: Instance Creation of XMLHttpRequest object
+
+xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true); // Step 2: Open the request
+
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) { // checking if the request is finished and response is ready
+        let data = JSON.parse(xhr.responseText);
+        console.log(data);
+    }
+}; // Step 4: Handle the response
+
+
+xhr.send(); // Step 3: Send the request
+```
+
+
+## Q41. What is a callback function in JavaScript?
+A callback function is a function that is passed as an argument to another function and is executed after the completion of the first function. Callback functions are used to handle asynchronous operations, such as reading a file or making an API request, and are commonly used in event handling, timers, and AJAX requests.
+
+```jsx
+function fetchData(callback) {
+    setTimeout(() => {
+        const data = 'Hello World';
+        callback(data);
+    }, 2000);
+}
+
+function displayData(data) {
+    console.log(data);
+}
+
+fetchData(displayData); // Hello World
+```
+
+## Q42. What is a Promise in JavaScript?
+What actually promises are in real life ? When we make a promise to someone we are saying that we will do something in the future. If we keep our promise, we fulfill it, and if we don't, we break it. Similarly, in JavaScript, a promise is an object that represents the eventual completion or failure of an asynchronous operation. A promise can be in one of three states: pending, fulfilled, or rejected. When a promise is fulfilled, it means that the operation was successful, and the promise returns a value. When a promise is rejected, it means that the operation failed, and the promise returns an error.We also know that every action as a reaction so in both case if our promise is fulfilled then we have to do something and if our promise is rejected then we have to do something. So we use the then() method to handle the fulfillment of a promise and the catch() method to handle the rejection of a promise.
+
+```jsx
+let promise=new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        let data="Hello World"
+        resolve(data)
+    },2000)
+})
+
+promise.then((data)=>{
+    console.log(data)
+}).catch((error)=>{
+    console.log(error)
+})
+```
+
+
+## Q43. What is Async/Await in JavaScript?
+Async/Await is a modern way to handle asynchronous operations in JavaScript. Async/Await is built on top of promises and provides a more readable and concise syntax for handling asynchronous code. The async keyword is used to define an asynchronous function, and the await keyword is used to pause the execution of an asynchronous function until a promise is settled. Async/Await makes it easier to write and maintain asynchronous code by allowing you to write asynchronous code that looks synchronous.
+
+```jsx
+ function fetchData() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const data = 'Hello World';
+            resolve(data);
+        }, 2000);
+    });
+}
+
+async function displayData() {
+    const data = await fetchData();
+    console.log(data);
+}
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
