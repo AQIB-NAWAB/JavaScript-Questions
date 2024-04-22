@@ -700,7 +700,7 @@ You can try its value by using the console.log(this) in the browser console.
 console.log(this); // window object
 ```
 
-## Q37. What is the difference between call(), apply(), and bind() methods in JavaScript?
+## Q37. What is the  Prototype in Javascript?
 Before understanding the difference between call(), apply(), and bind() methods in JavaScript, let's first understand what is prototype in JavaScript.
 
 When a function is created in JavaScript, it is automatically assigned a prototype property. These prototype properties are additional properties that can be added to a function or object automatically . Try to create a object and console log the object
@@ -753,6 +753,43 @@ myObject.toString(); // [object Object]
 ```
 How this happened even i did not define the toString() method in the object ? 
 so basically first it look into the object itself and if it does not find the property then it look into the prototype property of the object and find it there 
+
+## Q37. What is function borrowing in JavaScript?
+Function borrowing in JavaScript is a technique that allows a function from one object to be used by another object. This is achieved by using the call(), apply(), or bind() methods to change the value of this keyword in the function. Function borrowing is useful when you want to reuse a function that is defined in one object in another object.The scope of the function is changed to the object that is passed as an argument.
+
+```jsx
+let person1 = {
+    name: 'John',
+    greet: function() {
+        console.log('Hello, ' + this.name + '!');
+    }
+};
+
+let person2 = {
+    name: 'Jane'
+};
+
+person1.greet.call(person2); // Hello, Jane!
+```
+
+
+## Q38. What is the difference between call(), apply(), and bind() methods in JavaScript?
+
+### call():
+The call() method of Function instances calls this function with a given this value and arguments provided individually.
+```jsx
+function greet() {
+    console.log('Hello, ' + this.name + '!');
+}
+
+let person = {
+    name: 'John'
+};
+
+greet.call(person); // Hello, John!
+```
+In the above example, the call() method is used to call the greet() function with the person object as the value of this.
+
 
 
 
