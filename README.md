@@ -1059,24 +1059,6 @@ The stack and the heap are two types of memory storage in JavaScript that are us
 
 
 
-## Q17. what is meant by call back function in JavaScript?
-A callback function is a function that is passed as an argument to another function and is executed after the completion of the first function. Callback functions are used to handle asynchronous operations, such as reading a file or making an API request, and are commonly used in event handling, timers, and AJAX requests.
-
-```jsx
-function fetchData(callback) {
-    setTimeout(() => {
-        const data = 'Hello World';
-        callback(data);
-    }, 2000);
-}
-
-function displayData(data) {
-    console.log(data);
-}
-
-fetchData(displayData); // Hello World
-```
-
 
 
 
