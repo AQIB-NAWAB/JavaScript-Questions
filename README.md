@@ -1005,77 +1005,8 @@ async function displayData() {
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Stack and Heap
-## Q1. What is the difference between the stack and the heap in JavaScript?
+## Q44. What is the difference between the stack and the heap in JavaScript?
 The stack and the heap are two types of memory storage in JavaScript that are used to store data and variables. The stack is used to store primitive data types and function calls, while the heap is used to store objects and complex data structures. The relationship between the stack and the heap is that the stack holds references to objects stored in the heap.
-
-
-
-
-
-
-
-
-## Q17. what is meant by call back function in JavaScript?
-A callback function is a function that is passed as an argument to another function and is executed after the completion of the first function. Callback functions are used to handle asynchronous operations, such as reading a file or making an API request, and are commonly used in event handling, timers, and AJAX requests.
-
-```jsx
-function fetchData(callback) {
-    setTimeout(() => {
-        const data = 'Hello World';
-        callback(data);
-    }, 2000);
-}
-
-function displayData(data) {
-    console.log(data);
-}
-
-fetchData(displayData); // Hello World
-```
 
 
 
