@@ -1005,7 +1005,7 @@ async function displayData() {
 ```
 
 
-## Q1. What is the difference between the stack and the heap in JavaScript?
+## Q44. What is the difference between the stack and the heap in JavaScript?
 The stack and the heap are two types of memory storage in JavaScript that are used to store data and variables. The stack is used to store primitive data types and function calls, while the heap is used to store objects and complex data structures. The relationship between the stack and the heap is that the stack holds references to objects stored in the heap.
 
 
