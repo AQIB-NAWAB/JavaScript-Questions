@@ -23,10 +23,6 @@ it is also known as the local scope. it cloud be a if statement, for loop, while
 
 Variables declared with the `var` keyword can NOT have block scope.
 
-Variables declared inside a { } block can be accessed from outside the block.
-
-This is because of the temporal dead zone , we will discuss it later (:
-
 ### Global Scope
 
 The variables that can accessed from anywhere in the code are known as global variables 
