@@ -170,7 +170,7 @@ console.log(a); // undefined
 ### Synchronous Programming
 JavaScript is a synchronous programming language, meaning that it executes code line by line in the order it appears in the source code.Which means that it will execute one line of code at a time and move to next line after the execution of the first line.
 ### Asynchronous Programming
-JavaScript is also capable of asynchronous programming, which allows code to run in parallel without blocking the main execution thread. This is achieved using asynchronous functions, callbacks, promises, and async/await.
+JavaScript is also capable of asynchronous programming, which allows code to run in parallel without blocking the main execution thread. This is achieved using asynchronous functions, callbacks, promises, and async/await. It's use the browser resources to perform the async task.
 
 ```jsx 
 console.log("Hello World") // this will be executed first
